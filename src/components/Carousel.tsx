@@ -46,6 +46,7 @@ const Carousel = () => {
 
   const prevSlide = () => {
     setCurrent((prev) => (prev - 1 + heroCards.length) % heroCards.length);
+    
   };
 
   return (
