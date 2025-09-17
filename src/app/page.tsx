@@ -6,18 +6,6 @@ import Footer from "@/components/Footer";
 import { BookCopy, CreditCard } from "lucide-react";
 
 
-
-const tools = [
-  { name: "Image", desc: "Generate images with custom styles like PBR and ideogram.", badge: "New" },
-  { name: "Video", desc: "Generate videos with Haiku, Pika, Runway, Luma, and more." },
-  { name: "Realtime", desc: "Realtime AI rendering on a canvas, traditional feedback loops." },
-  { name: "Enhancer", desc: "Upscale and enhance images and videos up to 2K/4K." },
-  { name: "Edit", desc: "Generate and edit images, inpaint, and outpaint." },
-  { name: "Video Lipsync", desc: "Sync any video to any audio.", badge: "New" },
-  { name: "Motion Transfer", desc: "Transfer motion to images and animate characters." },
-  { name: "Train", desc: "Train AI models to recognize styles, products, or characters." },
-];
-
 export default function HomePage() {
 
 

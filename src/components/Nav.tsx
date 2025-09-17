@@ -1,4 +1,4 @@
-import { Folder, Video, VideoIcon, Videotape } from "lucide-react";
+import { Folder, Video} from "lucide-react";
 import React from "react";
 
 const Nav = () => {
