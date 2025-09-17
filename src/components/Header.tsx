@@ -1,28 +1,46 @@
 import React from 'react'
 import Nav from './Nav'
 import { Button } from './ui/button'
-import { Bell, Headset, ImagePlus } from 'lucide-react'
+import { Bell, ChevronDown, Headset, ImagePlus } from 'lucide-react'
 import { ModeToggle } from './ModeToggle'
+import Image from 'next/image'
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Menu } from 'lucide-react'
 
 const Header = () => {
   return (
-     <header className="flex items-center justify-between px-6 py-4 ">
-        <div className="font-bold text-lg">benevolentminibot
-            <svg aria-label="Krea Logo" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-             className="svelte-qzh0aw"><path d="M8.34 1.266c1.766-.124 3.324 1.105 3.551 2.802.216 1.612-.887 3.171-2.545 3.536-.415.092-.877.066-1.317.122a4.63 4.63 0 0 0-2.748 1.34l-.008.004-.01-.001-.006-.005-.003-.009q0-.009.005-.016a.04.04 0 0 0 .007-.022 438 438 0 0 1-.01-4.541c.003-1.68 1.33-3.086 3.085-3.21" 
-            className="svelte-qzh0aw"></path><path d="M8.526 15.305c-2.247-.018-3.858-2.23-3.076-4.3a3.31 3.31 0 0 1 2.757-2.11c.384-.04.845-.03 1.215-.098 1.9-.353 3.368-1.806 3.665-3.657.066-.41.031-.9.128-1.335.449-2.016 2.759-3.147 4.699-2.236 1.011.476 1.69 1.374 1.857 2.447q.051.33.034.818c-.22 5.842-5.21 10.519-11.279 10.47m2.831.93a.04.04 0 0 1-.021-.02l-.001-.006.002-.006q0-.003.003-.004l.006-.003q3.458-.792 5.992-3.185.045-.042.083.007c.27.357.554.74.78 1.106a10.6 10.6 0 0 1 1.585 4.89q.037.53.023.819c-.084 1.705-1.51 3.08-3.31 3.09-1.592.01-2.992-1.077-3.294-2.597-.072-.36-.05-.858-.11-1.238q-.282-1.755-1.715-2.84zm-3.369 6.64c-1.353-.235-2.441-1.286-2.684-2.593a5 5 0 0 1-.05-.817V15.14q0-.021.016-.007c.884.786 1.814 1.266 3.028 1.346l.326.01c1.581.051 2.92 1.087 3.229 2.592.457 2.225-1.557 4.195-3.865 3.793"
-             className="svelte-qzh0aw"></path></svg>
+    <div>
+     <header className="hidden items-center justify-between px-6 py-4  md:flex">
+        <div className='flex items-center gap-2'>
+            <Image src='/logo.svg' alt='logo' width={18} height={18} className="block dark:hidden"/>
+            <Image src='/logo-white.svg' alt='logo' width={18} height={18} className="hidden dark:block"/>
+
+            <span className="font-bold text-lg">
+            benevolentminibot
+            </span>
+
+      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 via-purple-300 to-blue-100 flex items-center justify-center">
+        <div className='w-4 h-4 z-30 rounded-full bg-gradient-to-b from-purple-400 to-purple-500 backdrop-blur-2xl opacity-40'></div>
+      </div>
+
+            <ChevronDown/>
         </div>
         <Nav/>
         <div className="flex items-center gap-3">
-          <Button variant="ghost" className='bg-gray-100 p-3 rounded-lg dark:text-gray-800'>
+          <Button className='bg-gray-100 hover:bg-gray-50 p-3 rounded-lg text-gray-800 cursor-pointer'>
             <ImagePlus/>
             <span>
 
             Gallery
             </span>
         </Button>
-          <Button variant="ghost" className='bg-gray-100 p-3 rounded-lg dark:text-gray-800'>
+          <Button className='bg-gray-100  hover:bg-gray-50 p-3 rounded-lg text-gray-800 cursor-pointer'>
 
             <Headset/>
             <span>
@@ -30,13 +48,86 @@ const Header = () => {
             </span>
         </Button>
 
-          <div className='bg-gray-100 p-3 rounded-lg dark:text-gray-800'>
+          <div className='bg-gray-100 p-3 rounded-lg dark:text-gray-800 cursor-pointer'>
             <Bell width={16} height={16}/>
           </div>
           <ModeToggle/>
-          <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 via-purple-400 to-blue-400 flex items-center justify-center"/>
         </div>
       </header>
+
+      {/* Mobile Menu */}
+      <div className="md:hidden">
+        <Sheet>
+          <SheetTrigger asChild>
+            <div className='flex items-center justify-between px-6 py-4'>
+             
+            <Button size="icon" className='p-3 rounded-lg dark:bg-gray-50'>
+              <Menu className="h-10 w-10 text-white dark:text-gray-800 cursor-pointer font-bold" />
+            </Button>
+
+            <div className="flex items-center gap-2">
+                <Image
+                  src="/logo.svg"
+                  alt="logo"
+                  width={20}
+                  height={20}
+                  className="block dark:hidden"
+                />
+                <Image
+                  src="/logo-white.svg"
+                  alt="logo"
+                  width={20}
+                  height={20}
+                  className="hidden dark:block"
+                />
+                <span className="font-bold text-lg">benevolentminibot</span>
+              </div>
+
+            </div>
+          </SheetTrigger>
+          <SheetContent side="left" className="w-64 p-4">
+            <SheetHeader>
+               <SheetTitle>
+
+              <div>
+
+              </div>
+               </SheetTitle>
+            </SheetHeader>
+
+            {/* Nav inside drawer */}
+            <div className=" flex flex-col items-start gap-4">
+              <div >
+              <Nav />
+              </div>
+              <div className='flex flex-col gap-4 items-start'>
+              <Button className="bg-gray-100 p-3 rounded-lg hover:bg-gray-50 cursor-pointer text-gray-800">
+                <ImagePlus /> 
+                <span>
+                Gallery
+                </span>
+              </Button>
+              <Button className="bg-gray-100 p-3 rounded-lg  hover:bg-gray-50 cursor-pointer text-gray-800">
+                <Headset />
+                <span>
+                 Support
+                </span>
+              </Button>
+
+              </div>
+              <div className="flex items-start flex-col gap-3 mt-4">
+                <ModeToggle />
+                <div className="bg-gray-100 p-3 rounded-lg dark:text-gray-800">
+                  <Bell width={16} height={16} />
+                </div>
+              </div>
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
+
+    </div>
   )
 }
 

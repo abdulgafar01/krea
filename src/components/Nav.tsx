@@ -5,9 +5,9 @@ const Nav = () => {
   return (
     <nav
       aria-label="Primary"
-      className="bg-gray-100  fixed top-2 py-2 px-3 right-0 left-0 z-[500] w-fit mx-auto rounded-2xl backdrop-blur-2xl transition-[transform,opacity,filter] duration-[500ms] ease-[cubic-bezier(.4,0,.2,1)]"
+      className="bg-gray-100  md:fixed top-2 py-2 px-3 right-0 left-0 z-[500] w-fit mx-auto rounded-2xl backdrop-blur-2xl transition-[transform,opacity,filter] duration-[500ms] ease-[cubic-bezier(.4,0,.2,1)]"
     >
-      <ul className="m-0 flex gap-2 list-none p-0">
+      <ul className="m-0 flex flex-col md:flex-row gap-2 list-none p-0">
         {/* Home */}
         <li className="relative group ">
           <a
